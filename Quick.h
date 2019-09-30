@@ -11,12 +11,12 @@ public:
         auto beg = first;
         auto end = last;
         auto mid = first + (end-beg)/2;
-        auto pivot = mid->edad;
+        auto pivot = mid->trade_usd;
         int vbeg;
         int vend;
         do{
-            vbeg = beg->edad;
-            vend = end->edad;
+            vbeg = beg->trade_usd;
+            vend = end->trade_usd;
             if(vbeg >= pivot && vend <= pivot){
                 swap(*beg,*end);
                 beg++;
