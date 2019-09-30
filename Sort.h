@@ -14,7 +14,8 @@ public:
     void print(container cnt){
         auto it = cnt.begin();
         while(it != cnt.end()){
-            std::cout << *it << "  ";
+            cout << "Nombre: " << it->nombre << ';';
+            cout <<"Edad: "<< it->edad << std::endl;
             it ++;
         }
     }

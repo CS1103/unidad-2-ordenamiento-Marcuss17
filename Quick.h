@@ -4,24 +4,27 @@
 #include <vector>
 
 
-
 class QuickSort{
 public:
     template<typename container, typename forward>
-    void sort(container &cnt, forward &first, forward &last) {
+    void sort(container &cnt, forward first, forward last) {
         auto beg = first;
         auto end = last;
         auto mid = first + (end-beg)/2;
-        auto pivot = *mid;
+        auto pivot = mid->edad;
+        int vbeg;
+        int vend;
         do{
-            if(*beg >= pivot && *end <= pivot){
+            vbeg = beg->edad;
+            vend = end->edad;
+            if(vbeg >= pivot && vend <= pivot){
                 swap(*beg,*end);
                 beg++;
                 end--;
             }
-            if(*beg < pivot)
+            if(vbeg < pivot)
                 beg++;
-            if(*end > pivot)
+            if(vend > pivot)
                 end--;
         }while(beg <= end);
         if(first < end)
@@ -33,8 +36,7 @@ public:
 
     template<typename T>
     void swap(T& beg, T& end) {
-        T temp;
-        temp = beg;
+        T temp=beg;
         beg = end;
         end = temp;
     }
