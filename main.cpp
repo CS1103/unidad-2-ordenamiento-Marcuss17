@@ -33,7 +33,7 @@ struct Persona{
     }
 };
 
-int main(){/*
+int main(){
     ifstream fin("/home/eduardo/Desktop/commodity_trade_statistics_data.csv");
     if(!fin){
         cout <<"File not open\n";
@@ -68,26 +68,8 @@ int main(){/*
         cout << ';' << objetos[i].quantity << ';' << objetos[i].categori;
         cout <<endl;
     }
-    cout << endl;*/
-    Sorter<QuickSort> S1;
-    //S1(objetos,objetos.begin(),objetos.end()-1);
-    vector <Persona> personas;
-    Persona P1(25,"Marco");
-    Persona P2(23,"Jose");
-    Persona P3(19,"Carlos");
-    Persona P4(32,"Rodrigo");
-    Persona P5(18,"Bryan");
-    personas.push_back(P1);
-    personas.push_back(P2);
-    personas.push_back(P3);
-    personas.push_back(P4);
-    personas.push_back(P5);
-    cout << "Vector de personas desordenado: " << endl;
-    S1.print(personas);
     cout << endl;
-    cout <<"Vector de personas ordenado: " << endl;
-    S1(personas,personas.begin(),personas.end()-1);
-    S1.print(personas);
+    Sorter<QuickSort> S1;
 
     Sorter<MergeSort> S2;
     Sorter<ShellSort> S3;
@@ -131,6 +113,24 @@ int main(){/*
     S3(v4,v4.begin(),v4.end());
     S3.print(v4);*/
 
+    /* Para poder usar esta clase se debe cambiar todas las flechas a ->edad.
+    vector <Persona> personas;
+    Persona P1(25,"Marco");
+    Persona P2(23,"Jose");
+    Persona P3(19,"Carlos");
+    Persona P4(32,"Rodrigo");
+    Persona P5(18,"Bryan");
+    personas.push_back(P1);
+    personas.push_back(P2);
+    personas.push_back(P3);
+    personas.push_back(P4);
+    personas.push_back(P5);
+    cout << "Vector de personas desordenado: " << endl;
+    S1.print(personas);
+    cout << endl;
+    cout <<"Vector de personas ordenado: " << endl;
+    S1(personas,personas.begin(),personas.end()-1);
+    S1.print(personas);*/
 
 
     return 0;
