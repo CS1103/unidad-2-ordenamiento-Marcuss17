@@ -75,7 +75,7 @@ int main(){
     Sorter<MergeSort> S2;
     Sorter<ShellSort> S3;
 
-    /*QUICKSORT
+    /*QUICKSORT FUNCIONA PARA VECTORES SIMPLES. SE DEBE VOLVER A LA FORMA, DE LAS FUNCIONES, DE LOS PRIMEROS PUSH.
     S1(v,v.begin(),v.end()-1);
     S1.print(v);
     cout << endl;
@@ -88,7 +88,7 @@ int main(){
     S1(v4,v4.begin(),v4.end()-1);
     S1.print(v4);*/
 
-    /*MERGE SORT
+    /*MERGESORT FUNCIONA PARA VECTORES SIMPLES. SE DEBE VOLVER A LA FORMA, DE LAS FUNCIONES, DE LOS PRIMEROS PUSH.
     S2(v,v.begin(),v.end()-1);
     S2.print(v);
     cout << endl;
@@ -101,7 +101,7 @@ int main(){
     S2(v4,v4.begin(),v4.end()-1);
     S2.print(v4);*/
 
-    /*SHELL SORT
+    /*SHELL SORT FUNCIONA PARA VECTORES SIMPLES. SE DEBE VOLVER A LA FORMA, DE LAS FUNCIONES, DE LOS PRIMEROS PUSH.
     S3(v,v.begin(),v.end());
     S3.print(v);
     cout << endl;
