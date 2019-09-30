@@ -4,14 +4,12 @@
 #include "Sort.h"
 #include "Quick.h"
 #include "Shell.h"
-#include "Heap.h"
-#include <iomanip>
 #include <fstream>
 #include <sstream>
 
 using std::cout; using std::cin; using std::endl; using std::string; using std::vector; using std::ifstream;
 
-struct Objeto{
+struct Commodity{
     string countryOrArea;
     int year;
     int comm_code;
@@ -34,42 +32,45 @@ struct Persona{
 };
 
 int main(){
+
     ifstream fin("/home/eduardo/Desktop/commodity_trade_statistics_data.csv");
     if(!fin){
         cout <<"File not open\n";
         return 1;
     }
-    vector<Objeto> objetos;
+    vector<Commodity> commodities;
     string line;
     const char delim = ',';
 
 
     while(getline(fin, line)){
         std::istringstream ss(line);
-        Objeto objeto;
-        getline(ss,objeto.countryOrArea,delim);
-        ss >> objeto.year;ss.ignore(10,delim);
-        ss >> objeto.comm_code;ss.ignore(10,'"');
-        getline(ss,objeto.commodity,'"');
-        getline(ss,objeto.flow,delim);
-        getline(ss,objeto.flow,delim);
-        ss >> objeto.trade_usd;ss.ignore(10,delim);
-        ss >> objeto.weight_kg;ss.ignore(10,delim);
-        getline(ss,objeto.quantity_name,delim);
-        ss >> objeto.quantity; ss.ignore(10,delim);
-        getline(ss,objeto.categori,delim);
+        Commodity commodity;
+        getline(ss,commodity.countryOrArea,delim);
+        ss >> commodity.year;ss.ignore(10,delim);
+        ss >> commodity.comm_code;ss.ignore(10,'"');
+        getline(ss,commodity.commodity,'"');
+        getline(ss,commodity.flow,delim);
+        getline(ss,commodity.flow,delim);
+        ss >> commodity.trade_usd;ss.ignore(10,delim);
+        ss >> commodity.weight_kg;ss.ignore(10,delim);
+        getline(ss,commodity.quantity_name,delim);
+        ss >> commodity.quantity; ss.ignore(10,delim);
+        getline(ss,commodity.categori,delim);
 
         if (ss)
-            objetos.push_back(objeto);
+            commodities.push_back(commodity);
     }
-    for(int i = 0; i != 5; i ++){
-        cout << objetos[i].countryOrArea <<';'<< objetos[i].year <<';'<< objetos[i].comm_code <<';' << objetos[i].commodity;
-        cout << ';' << objetos[i].flow << ';' << objetos[i].trade_usd <<';' << objetos[i].weight_kg << ';' << objetos[i].quantity_name;
-        cout << ';' << objetos[i].quantity << ';' << objetos[i].categori;
+    /*/Used this to check
+    // for(int i = 0; i != 5; i ++){
+        cout << commoditys[i].countryOrArea <<';'<< commoditys[i].year <<';'<< commoditys[i].comm_code <<';' << commoditys[i].commodity;
+        cout << ';' << commoditys[i].flow << ';' << commoditys[i].trade_usd <<';' << commoditys[i].weight_kg << ';' << commoditys[i].quantity_name;
+        cout << ';' << commoditys[i].quantity << ';' << commoditys[i].categori;
         cout <<endl;
-    }
-    cout << endl;
+    }*/
     Sorter<QuickSort> S1;
+    S1(commodities,commodities.begin(),commodities.end()-1);
+
 
     Sorter<MergeSort> S2;
     Sorter<ShellSort> S3;
@@ -132,6 +133,22 @@ int main(){
     S1(personas,personas.begin(),personas.end()-1);
     S1.print(personas);*/
 
+    std::ofstream myfile;
+    myfile.open ("/home/eduardo/Desktop/Utec/Poo2/Proyecto2/output/output.csv");
+    auto it = commodities.begin();
+    myfile <<"country_or_area,year,comm_code,commodity,flow,trade_usd,weight_kg,quantity_name,quantity,category\n";
+    //Changed the ',' for a dot. So that it can be easier to read.
+    for(auto &i: commodities){
+        for(auto &j : i.commodity){
+            if(j == ',')
+                j = '.';
+        }
+    }
+    while(it != commodities.end()){
+        myfile << (it->countryOrArea) << ',' << (it->year) << ',' << (it->comm_code) <<',' << (it->commodity) << ',' << (it->flow) << ',' << (it->trade_usd);
+        myfile << ',' << (it->weight_kg) << ',' << (it ->quantity_name) << ',' << (it ->quantity) << ',' << (it ->categori) << '\n';
+        it++;
+    }
 
     return 0;
 }
