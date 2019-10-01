@@ -38,7 +38,7 @@ public:
         }
         beg = first;
         while(lbeg != left.end() && rbeg != right.end()){
-            if(*lbeg <= *rbeg){
+            if(lbeg ->trade_usd <= rbeg->trade_usd){
                 *beg = *lbeg;
                 lbeg++;
             }

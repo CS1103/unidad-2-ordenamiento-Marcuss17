@@ -70,10 +70,10 @@ int main(){
     }*/
     Sorter<QuickSort> S1;
     S1(commodities,commodities.begin(),commodities.end()-1);
-
-
     Sorter<MergeSort> S2;
+    S2(commodities,commodities.begin(),commodities.end()-1);
     Sorter<ShellSort> S3;
+    S3(commodities,commodities.begin(),commodities.end());
 
     /*QUICKSORT FUNCIONA PARA VECTORES SIMPLES. SE DEBE VOLVER A LA FORMA, DE LAS FUNCIONES, DE LOS PRIMEROS PUSH.
     S1(v,v.begin(),v.end()-1);
@@ -132,6 +132,7 @@ int main(){
     cout <<"Vector de personas ordenado: " << endl;
     S1(personas,personas.begin(),personas.end()-1);
     S1.print(personas);*/
+
 
     std::ofstream myfile;
     myfile.open ("/home/eduardo/Desktop/Utec/Poo2/Proyecto2/output/output.csv");

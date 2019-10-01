@@ -32,8 +32,6 @@ public:
         if(beg < last)
             sort(cnt,beg,last);
     }
-
-
     template<typename T>
     void swap(T& beg, T& end) {
         T temp=beg;

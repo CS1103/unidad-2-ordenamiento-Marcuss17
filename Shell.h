@@ -12,7 +12,7 @@ public:
             while(allOrdered){
                 int count = 0; auto j = first; auto it2 = jump;
                 while(it2 != last){
-                    if(*j > *it2) {
+                    if(j->trade_usd > it2->trade_usd) {
                         swap(*j, *it2);
                         it2++;
                         j++;
