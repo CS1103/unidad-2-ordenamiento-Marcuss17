@@ -33,7 +33,7 @@ struct Persona{
 
 int main(){
 
-    ifstream fin("/home/eduardo/Desktop/commodity_trade_statistics_data.csv");
+    ifstream fin("/home/eduardo/Desktop/Utec/Poo2/Proyecto2/outputP2/commodity_trade_statistics_data.csv");
     if(!fin){
         cout <<"File not open\n";
         return 1;
@@ -61,19 +61,19 @@ int main(){
         if (ss)
             commodities.push_back(commodity);
     }
-    /*/Used this to check
-    // for(int i = 0; i != 5; i ++){
-        cout << commoditys[i].countryOrArea <<';'<< commoditys[i].year <<';'<< commoditys[i].comm_code <<';' << commoditys[i].commodity;
-        cout << ';' << commoditys[i].flow << ';' << commoditys[i].trade_usd <<';' << commoditys[i].weight_kg << ';' << commoditys[i].quantity_name;
-        cout << ';' << commoditys[i].quantity << ';' << commoditys[i].categori;
+    //Used this to check
+    for(int i = 0; i != 5; i ++){
+        cout << commodities[i].countryOrArea <<';'<< commodities[i].year <<';'<< commodities[i].comm_code <<';' << commodities[i].commodity;
+        cout << ';' << commodities[i].flow << ';' << commodities[i].trade_usd <<';' << commodities[i].weight_kg << ';' << commodities[i].quantity_name;
+        cout << ';' << commodities[i].quantity << ';' << commodities[i].categori;
         cout <<endl;
-    }*/
+    }
     Sorter<QuickSort> S1;
-    S1(commodities,commodities.begin(),commodities.end()-1);
+    S1(commodities,commodities.begin(),commodities.end()-1);/*
     Sorter<MergeSort> S2;
     S2(commodities,commodities.begin(),commodities.end()-1);
     Sorter<ShellSort> S3;
-    S3(commodities,commodities.begin(),commodities.end());
+    S3(commodities,commodities.begin(),commodities.end());*/
 
     /*QUICKSORT FUNCIONA PARA VECTORES SIMPLES. SE DEBE VOLVER A LA FORMA, DE LAS FUNCIONES, DE LOS PRIMEROS PUSH.
     S1(v,v.begin(),v.end()-1);
