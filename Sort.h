@@ -2,6 +2,7 @@
 #define SORT_METHODS_SORT_H
 #include "Merge.h"
 #include "Quick.h"
+#include "Heap.h"
 
 template<typename SortMethod>
 class Sorter : private SortMethod{
